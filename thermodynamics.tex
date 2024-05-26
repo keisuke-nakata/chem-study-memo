@@ -1,0 +1,79 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+%%%
+% packages
+%%%
+% 数式
+\usepackage{amsmath,amsfonts,physics}
+\usepackage{bm}
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+% 単位
+\usepackage{siunitx}
+\AtBeginDocument{\RenewCommandCopy\qty\SI}  % qty が競合
+
+%%%
+% マクロ
+%%%
+% 太字
+\newcommand{\bx}{\vb*{x}}
+\newcommand{\bb}{\vb*{b}}
+\newcommand{\bc}{\vb*{c}}
+% 単位
+\DeclareSIUnit{\atm}{atm}
+\newcommand{\braunit}[1]{\;\text{[}\unit{#1}\text{]}\;}
+
+
+%%%
+% 本文
+%%%
+\begin{document}
+
+\title{熱力学メモ}
+\author{NAKATA Keisuke}
+\date{20240526}
+\maketitle
+
+
+\part*{熱力学}
+
+\subsection*{アボガドロ定数 $N_A$}
+\begin{align*}
+  N_A \braunit{\per\mol}= \num{6.02214076e23}
+\end{align*}
+0.012 kg の炭素に含まれる炭素原子の数。 $N_A = \qty{1}{[\mol]}$. \\
+\cite[pp.1]{thermo}
+
+\subsection*{大気圧 $\qty{1}{[\atm]}$}
+\begin{align*}
+  \qty{1}{[\atm]} = \qty{1.01325e5}{[\Pa]}
+\end{align*}
+海面上で空気から受ける圧力の値。 \\
+\cite[pp.1]{thermo}
+
+\subsection*{絶対温度 $\unit{\K}$}
+\begin{align*}
+  T \braunit{\K} = t \braunit{\celsius} + 273.15
+\end{align*}
+\cite[pp.10]{thermo}
+
+\subsection*{シャルルの法則}
+\begin{align*}
+  \varDelta V\braunit{\m^3}
+    &= \varDelta t\braunit{\celsius}\times\frac{V_{\qty{0}{\celsius}}\braunit{\m^3}}{273.15} \\
+    &= \varDelta T\braunit{\K}\times\frac{V_{\qty{273.15}{\K}}\braunit{\m^3}}{273.15}
+\end{align*}
+温度と体積の比例則。$V_{\qty{0}{\celsius}} (=V_{\qty{273.15}{\K}})$ は気体の種類や圧力、モル数によるので注意。高圧または低温では分子間力や分子の大きさを無視できず、近似が悪化する。 \\
+\cite[pp.10]{thermo}
+
+\subsection*{ボイル・シャルルの法則 (気体の状態方程式)}
+\begin{align*}
+  p\braunit{\Pa}V\braunit{\m^3} = n\braunit{\mol}RT\braunit{\K}
+\end{align*}
+$R$ は気体定数。シャルルの法則、ボイルの法則、ゲイ＝リュサックの法則を組み合わせたもの。高圧または低温では分子間力や分子の大きさを無視できず、近似が悪化する。\\
+\cite[pp.15]{thermo}
+
+\bibliographystyle{jplain}
+\bibliography{citations}
+
+\end{document}
