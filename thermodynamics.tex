@@ -41,14 +41,14 @@
 \begin{align*}
   N_A \braunit{\per\mol}= \num{6.02214076e23}
 \end{align*}
-0.012 kg の炭素に含まれる炭素原子の数。 $N_A = \qty{1}{[\mol]}$. \\
+0.012 kg の炭素に含まれる炭素原子の数。 $N_A = \qty{1}{[\mol]}$.
 \cite[pp.1]{thermo}
 
 \subsection*{大気圧 $\qty{1}{[\atm]}$}
 \begin{align*}
   \qty{1}{[\atm]} = \qty{1.01325e5}{[\Pa]}
 \end{align*}
-海面上で空気から受ける圧力の値。 \\
+海面上で空気から受ける圧力の値。
 \cite[pp.1]{thermo}
 
 \subsection*{絶対温度 $\unit{\K}$}
@@ -63,15 +63,30 @@
     &= \varDelta t\braunit{\celsius}\times\frac{V_{\qty{0}{\celsius}}\braunit{\m^3}}{273.15} \\
     &= \varDelta T\braunit{\K}\times\frac{V_{\qty{273.15}{\K}}\braunit{\m^3}}{273.15}
 \end{align*}
-温度と体積の比例則。$V_{\qty{0}{\celsius}} (=V_{\qty{273.15}{\K}})$ は気体の種類や圧力、モル数によるので注意。高圧または低温では分子間力や分子の大きさを無視できず、近似が悪化する。 \\
+温度と体積の比例則。$V_{\qty{0}{\celsius}} (=V_{\qty{273.15}{\K}})$ は気体の種類や圧力、モル数によるので注意。高圧または低温では分子間力や分子の大きさを無視できず、近似が悪化する。
 \cite[pp.10]{thermo}
 
-\subsection*{ボイル・シャルルの法則 (気体の状態方程式)}
+\subsection*{ボイル・シャルルの法則 (理想気体の状態方程式)}
 \begin{align*}
   p\braunit{\Pa}V\braunit{\m^3} = n\braunit{\mol}RT\braunit{\K}
 \end{align*}
-$R$ は気体定数。シャルルの法則、ボイルの法則、ゲイ＝リュサックの法則を組み合わせたもの。高圧または低温では分子間力や分子の大きさを無視できず、近似が悪化する。\\
+$R=8.314\dots$ は気体定数。シャルルの法則、ボイルの法則、ゲイ＝リュサックの法則を組み合わせたもの。高圧または低温では分子間力や分子の大きさを無視できず、近似が悪化する。
 \cite[pp.15]{thermo}
+
+\subsection*{ファンデルワールスの状態方程式 (実在気体の状態方程式)}
+\begin{align*}
+  p\braunit{\Pa} = \frac{n\braunit{\mol}RT\braunit{\K}}{V\braunit{\m^3} - n\braunit{\mol}b} - a\left(\frac{n\braunit{\mol}}{V\braunit{\m^3}}\right)^2
+\end{align*}
+\begin{itemize}
+  \item $a$ は分子間力による誤差を補正するパラメータ (分子間力は密度の2乗に比例する)。
+  \item $b$ は分子の大きさによる誤差を補正するパラメータ (\qty{1}{\mol} の気体の分子を寄せ集めてた時の体積で、固体での体積とほぼ同じ)。
+\end{itemize}
+\cite[pp.17]{thermo}
+
+\subsection*{ドルトンの法則}
+理想混合系において、複数の気体からなる混合気体のある温度での圧力 (\emph{全圧}) は、
+それぞれの気体の同じ体積・同じ温度での圧力 (\emph{分圧}) の和に等しい。
+\cite[pp.18]{thermo}
 
 \bibliographystyle{jplain}
 \bibliography{citations}
