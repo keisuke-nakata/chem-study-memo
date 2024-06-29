@@ -21,7 +21,7 @@
 \newcommand{\bc}{\vb*{c}}
 % 単位
 \DeclareSIUnit{\atm}{atm}
-\newcommand{\braunit}[1]{\;\text{[}\unit{#1}\text{]}\;}
+\newcommand{\braunit}[1]{\;\text{[}\unit[per-mode = symbol]{#1}\text{]}\;}
 
 
 %%%
@@ -87,6 +87,78 @@ $R=8.314\dots$ は気体定数。シャルルの法則、ボイルの法則、�
 理想混合系において、複数の気体からなる混合気体のある温度での圧力 (\emph{全圧}) は、
 それぞれの気体の同じ体積・同じ温度での圧力 (\emph{分圧}) の和に等しい。
 \cite[pp.18]{thermo}
+
+\subsection*{熱と仕事の等価性}
+\begin{itemize}
+  \item $W\braunit{\J}$: 系が外界にする仕事
+  \item $Q\braunit{\J}$: 系が外界から受け取る熱
+  \item $L\braunit{\J}$: 外界から系に加えられる力学的仕事 (ここでは $W$ とは区別する)
+\end{itemize}
+サイクルにおいて、
+\begin{align*}
+  W\braunit{\J} = Q\braunit{\J}
+\end{align*}
+ただし、非サイクルにおいては、系の状態が変化するため、一般に $W \neq Q$ である。
+\cite[pp.34]{thermo}
+
+\subsection*{熱力学第1法則}
+ある平衡状態から別の平衡状態へ変化するとき、 $Q-W$ という値はその経路によらず一定値となる。
+\cite[pp.37]{thermo}
+
+\subsection*{熱容量とモル比熱}
+\begin{itemize}
+  \item $C\braunit{\J\per\K} = \frac{Q\braunit{\J}}{\varDelta T\braunit{\K}}$: 熱容量
+  \item $c\braunit{\J\per\mole\per\K} = \frac{C\braunit{\J\per\K}}{n\braunit{\mole}}$: モル比熱
+\end{itemize}
+熱容量は、系の温度を $\varDelta T$ だけ上昇させるために必要な熱 $Q$ を決定する比例係数。\\
+モル比熱は、 $1\braunit{\mole}$ あたりの熱容量。\\
+定積過程と定圧過程では、 $\varDelta T$ が同じであっても到達する状態が異なるので、熱容量・比熱の値は異なる。
+定積過程の熱容量とモル比熱は $C_V, c_V$ 、定圧過程の熱容量とモル比熱は $C_p, c_p$ と表記する。
+\cite[pp.38]{thermo}
+
+\subsection*{外界にする仕事}
+\begin{align*}
+  W\braunit{\J} = p_e\braunit{\Pa}\varDelta V\braunit{\m^3}
+\end{align*}
+\begin{itemize}
+  \item $W$: 系が外界に対してする仕事
+  \item $p_e$: 外界から系に作用する圧力
+  \item $\varDelta V$: 系の体積の変化
+\end{itemize}
+系が $p_e$ に抗して $\varDelta V$ だけ膨張したときに外界にする仕事。\\
+これは、仕事が力と距離の積であることと、圧力が単位面積あたりの力であることから導ける。
+\cite[pp.46]{thermo}
+
+\subsection*{準静的過程の吸熱}
+\begin{align*}
+  Q\braunit{\J} = \int_{T_1}^{T_2} C\left(T, V, n, \pdv{V}{T}\right)\dd{T}
+\end{align*}
+温度が $T_1$ から $T_2$ に変化する準静的過程で系が吸収する熱量 $Q$ は、
+その過程中の温度 $T$ における熱容量 $C\left(T, V, n, \pdv{V}{T}\right)$ を $T$ で積分することで与えられる。
+\cite[pp.44]{thermo}
+
+\subsection*{準静的過程の仕事}
+\begin{align*}
+  W\braunit{\J} = \int_{V_1}^{V_2} p\left(T, V, n\right)\dd{V}
+\end{align*}
+体積が $V_1$ から $V_2$ に変化する準静的過程で系が外界にする仕事 $W$ は、
+その過程中の体積 $V$ における圧力 $p\left(T, V, n\right)$ を $V$ で積分することで与えられる。\\
+なお、これは $pV$ 図での準静的過程の線の下側の面積にあたる。
+過程がサイクルになっている場合、系が外界にする仕事は、サイクルが囲む面積にあたり、これは一般に正である
+(系は熱を受け取って外界に仕事をしながらもとの状態に戻る)。
+
+ここで、定圧過程 ($p$ が一定) かつ理想気体 ($p = \frac{nRT}{V}$) を考えると、
+\begin{align*}
+  W\braunit{\J} = p(V_2 - V_1) = nR(T_2 - T_1)
+\end{align*}
+となる。つまり、定圧過程で理想気体のする仕事は、圧力と体積差の積、もしくは物質量と温度差 (と気体定数) の積となる。
+
+また、定温過程 ($T$ が一定) かつ理想気体 ($p = \frac{nRT}{V}$) を考えると、
+\begin{align*}
+  W\braunit{\J} = nRT\int_{V_1}^{V_2}\frac{1}{V}\dd{V} = nRT\ln\frac{V_2}{V_1}
+\end{align*}
+となる。つまり、定温過程で理想気体のする仕事は、温度と対数体積比の積となる。
+\cite[pp.48]{thermo}
 
 \bibliographystyle{jplain}
 \bibliography{citations}
