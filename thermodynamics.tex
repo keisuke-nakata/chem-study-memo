@@ -47,17 +47,17 @@
 \begin{align*}
   N_A \braunit{\per\mol}= \num{6.02214076e23}
 \end{align*}
-0.012 kg の炭素に含まれる炭素原子の数。 $N_A = \qty{1}{[\mol]}$.
+0.012 kg の炭素に含まれる炭素原子の数. $N_A = \qty{1}{[\mol]}$.
 \cite[pp.1]{thermo}
 
 \subsection{大気圧 \texorpdfstring{$\qty{1}{[\atm]}$}{1[atm]}}
 \begin{align*}
   \qty{1}{[\atm]} = \qty{1.01325e5}{[\Pa]}
 \end{align*}
-海面上で空気から受ける圧力の値。
+海面上で空気から受ける圧力の値.
 \cite[pp.1]{thermo}
 
-\subsection{絶対温度 $\unit{\K}$}
+\subsection{絶対温度 \texorpdfstring{$\unit{\K}$}{K}}
 \begin{align*}
   T \braunit{\K} = t \braunit{\celsius} + 273.15
 \end{align*}
@@ -71,14 +71,14 @@
     &= \varDelta t\braunit{\celsius}\times\frac{V_{\qty{0}{\celsius}}\braunit{\m^3}}{273.15} \\
     &= \varDelta T\braunit{\K}\times\frac{V_{\qty{273.15}{\K}}\braunit{\m^3}}{273.15}
 \end{align*}
-温度と体積の比例則。$V_{\qty{0}{\celsius}} (=V_{\qty{273.15}{\K}})$ は気体の種類や圧力、モル数によるので注意。高圧または低温では分子間力や分子の大きさを無視できず、近似が悪化する。
+温度と体積の比例則. $V_{\qty{0}{\celsius}} (=V_{\qty{273.15}{\K}})$ は気体の種類や圧力, モル数によるので注意. 高圧または低温では分子間力や分子の大きさを無視できず, 近似が悪化する.
 \cite[pp.10]{thermo}
 
 \subsection{ボイル・シャルルの法則 (理想気体の状態方程式)}
 \begin{align*}
   p\braunit{\Pa}V\braunit{\m^3} = n\braunit{\mol}RT\braunit{\K}
 \end{align*}
-$R=8.314\dots$ は気体定数。シャルルの法則、ボイルの法則、ゲイ＝リュサックの法則を組み合わせたもの。高圧または低温では分子間力や分子の大きさを無視できず、近似が悪化する。
+$R=8.314\dots$ は気体定数. シャルルの法則, ボイルの法則, ゲイ＝リュサックの法則を組み合わせたもの. 高圧または低温では分子間力や分子の大きさを無視できず, 近似が悪化する.
 \cite[pp.15]{thermo}
 
 \subsection{ファンデルワールスの状態方程式 (実在気体の状態方程式)}
@@ -86,54 +86,95 @@ $R=8.314\dots$ は気体定数。シャルルの法則、ボイルの法則、�
   p\braunit{\Pa} = \frac{n\braunit{\mol}RT\braunit{\K}}{V\braunit{\m^3} - n\braunit{\mol}b} - a\left(\frac{n\braunit{\mol}}{V\braunit{\m^3}}\right)^2
 \end{align*}
 \begin{itemize}
-  \item $a$ は分子間力による誤差を補正するパラメータ (分子間力は密度の2乗に比例する)。
-  \item $b$ は分子の大きさによる誤差を補正するパラメータ (\qty{1}{\mol} の気体の分子を寄せ集めてた時の体積で、固体での体積とほぼ同じ)。
+  \item $a$ は分子間力による誤差を補正するパラメータ (分子間力は密度の2乗に比例する).
+  \item $b$ は分子の大きさによる誤差を補正するパラメータ (\qty{1}{\mol} の気体の分子を寄せ集めてた時の体積で, 固体での体積とほぼ同じ).
 \end{itemize}
 \cite[pp.17]{thermo}
 
 \subsection{ドルトンの法則}
-理想混合系において、複数の気体からなる混合気体のある温度での圧力 (\emph{全圧}) は、
-それぞれの気体の同じ体積・同じ温度での圧力 (\emph{分圧}) の和に等しい。
+理想混合系において, 複数の気体からなる混合気体のある温度での圧力 (\emph{全圧}) は,
+それぞれの気体の同じ体積・同じ温度での圧力 (\emph{分圧}) の和に等しい.
 \cite[pp.18]{thermo}
 
-\section{熱力学第1法則}
-
+\section{熱, 仕事, 内部エネルギー}
 \begin{itemize}
   \item $W\braunit{\J}$: 系が外界にする仕事
   \item $Q\braunit{\J}$: 系が外界から受け取る熱
   % \item $L\braunit{\J}$: 外界から系に加えられる力学的仕事 (ここでは $W$ とは区別する)
+  \item $U\braunit{\J}$: 系の内部エネルギー
 \end{itemize}
+
+\subsection{内部エネルギー}
 \subsubsection{一般に}
-ある平衡状態から別の平衡状態への変化において $Q-W \braunit{\J}$ という値はその変化の経路によらず一定値となる。
-ただし、一般に $W \neq Q$ であることに注意。
+\begin{align*}
+  U = U(T, V, n) = \left[Q - W\right]_{OA} \braunit{\J}
+\end{align*}
+暗に基準点 $U_0 = U(T_0, V_0, n) = 0$ を設定することで, 系の状態 $A = (T, V, n)$ における内部エネルギー $U$ は状態変数で決定できる.
+\cite[pp.65]{thermo}
+\subsubsection{理想気体}
+\begin{align*}
+  U = nc_VT + nu_0 \braunit{\J}
+\end{align*}
+理想気体の内部エネルギーは, 等温曲線上で一定値をとる.
+つまり偏微分 ($T$ を変化させないように $V$ を変化させたときの $U$ の変化) $\pdv{U}{V} = 0$ である.
+全微分については $\dv{U}{V} = \pdv{U}{V} + \pdv{U}{T}\dv{T}{V} = 0 + \pdv{U}{T}\dv{T}{V} \neq 0$ であることに注意.
+\cite[pp.67]{thermo}
+
+\subsection{熱力学第1法則}
+\subsubsection{一般に}
+ある平衡状態 $A$ から別の平衡状態 $B$ への変化において, その変化の経路によらず,
+\begin{align*}
+  Q-W \braunit{\J} \quad \text{は一定.}
+\end{align*}
+ただし, 一般に $W \neq Q$ であることに注意.
 \cite[pp.36]{thermo}
+
+内部エネルギーを用いて書くと
+\begin{align*}
+  & \left[Q - W\right]_{AB} = U_B - U_A = \int_A^B\left(\pdv{U}{T}\dd{T} + \pdv{U}{V}\dd{V}\right) = \Delta U_{AB} \braunit{\J} \\
+  & \iff Q = \Delta U + W \braunit{\J}
+\end{align*}
+(上式) $Q-W$ は経路によらず一定なのだから, $\Delta U_{AB}$ は $A$ と $B$ の状態のみで決まる.
+\cite[pp.66]{thermo}\\
+(下式) 両辺の微小な変化を考えると
+\begin{align*}
+  \dd[\prime]{Q} = \dd{U} + \dd[\prime]{W} = \pdv{U}{T}\dd{T} + \left(\pdv{U}{V} + p\right)\dd{V} \braunit{\J}
+\end{align*}
+$\dd{U}$ は全微分だが, $\dd[\prime]{Q}, \dd[\prime]{W}$ は単に微小量でしかないことに注意.
+\cite[pp.75]{thermo}
 \subsubsection{サイクル} \label{section:熱力学第1法則_サイクル}
-サイクル (同じ平衡状態へ戻ってくる変化) において  $W = Q\braunit{\J}$ となる。
+\begin{align*}
+  W = Q\braunit{\J}
+\end{align*}
+サイクルとは, 同じ平衡状態へ戻ってくる過程である.
 \cite[pp.34]{thermo}
 \subsubsection{自由膨張}
-自由膨張において $Q = W = 0\braunit{\J}$ となる。\\
-なぜなら、自由膨張は真空への膨張なので抗力となる圧力がないため仕事 $W=0$ 。
-さらに、実験によって温度変化がないこと、つまり $Q=0$ が確かめられている。
+\begin{align*}
+  Q = W = 0\braunit{\J}
+\end{align*}
+なぜなら: 自由膨張は真空への膨張なので抗力となる圧力がないため仕事 $W=0$.
+さらに, 実験によって温度変化がないこと, つまり $Q=0$ が確かめられている.
 \cite[pp.53]{thermo}
 \subsubsection{準静的等温過程} \label{section:熱力学第1法則_準静的等温過程}
-準静的等温過程において $Q = W = nRT\ln\frac{V_2}{V_1}\braunit{\J}$ (\fullref{section:熱と仕事_等温過程の仕事}) となる。\\
-なぜなら：自由膨張 (温度変化がない) の状態変化を逆に戻す準静的等温過程を考えてつなぎ合わせ、サイクルを作る。
-サイクルにおいては $Q - W = 0$ であり、自由膨張において $Q = W = 0$ は分かっているから、
-$Q - W = \left[Q - W\right]_{自由膨張} + \left[Q - W\right]_{準静的等温過程} = 0 + \left[Q - W\right]_{準静的等温過程} = 0$ 。
-よって $\left[Q = W\right]_{準静的等温過程}$ 。
+\begin{align*}
+  Q = W = nRT\ln\frac{V_2}{V_1}\braunit{\J}
+\end{align*}
+(\fullref{section:等温過程の仕事}).\\
+なぜなら：自由膨張 (温度変化がない) の状態変化を逆に戻す準静的等温過程を考えてつなぎ合わせ,サイクルを作る.
+サイクルにおいては $Q - W = 0$ であり, 自由膨張において $Q = W = 0$ は分かっているから,
+$Q - W = \left[Q - W\right]_{自由膨張} + \left[Q - W\right]_{準静的等温過程} = 0 + \left[Q - W\right]_{準静的等温過程} = 0$.
+よって $\left[Q = W\right]_{準静的等温過程}$.
 \cite[pp.56]{thermo}
-
-\section{熱と仕事}
 
 \subsection{熱容量とモル比熱}
 \begin{itemize}
-  \item $C\braunit{\J\per\K} = \frac{Q\braunit{\J}}{\varDelta T\braunit{\K}}$: 熱容量
-  \item $c\braunit{\J\per\mole\per\K} = \frac{C\braunit{\J\per\K}}{n\braunit{\mole}}$: モル比熱
+  \item $C\braunit{\J\per\K} = \dfrac{Q\braunit{\J}}{\varDelta T\braunit{\K}}$: 熱容量
+  \item $c\braunit{\J\per\mole\per\K} = \dfrac{C\braunit{\J\per\K}}{n\braunit{\mole}}$: モル比熱
 \end{itemize}
-熱容量は、系の温度を $\varDelta T$ だけ上昇させるために必要な熱 $Q$ を決定する比例係数。\\
-モル比熱は、 $1\braunit{\mole}$ あたりの熱容量。\\
-定積過程と定圧過程では、 $\varDelta T$ が同じであっても到達する状態が異なるので、熱容量・比熱の値は異なる。
-定積過程の熱容量とモル比熱は $C_V, c_V$ 、定圧過程の熱容量とモル比熱は $C_p, c_p$ と表記する。
+熱容量は系の温度を $\varDelta T$ 上昇させるために必要な熱 $Q$ を決定する比例係数.
+モル比熱は $1\braunit{\mole}$ あたりの熱容量.\\
+定積過程と定圧過程では, $\varDelta T$ が同じであっても到達する状態が異なるので, 熱容量・比熱の値は異なる.
+定積過程の熱容量とモル比熱は $C_V, c_V$, 定圧過程の熱容量とモル比熱は $C_p, c_p$ と表記する.
 \cite[pp.38]{thermo}
 
 % \subsection{外界にする仕事}
@@ -145,58 +186,56 @@ $Q - W = \left[Q - W\right]_{自由膨張} + \left[Q - W\right]_{準静的等温
 %   \item $p_e$: 外界から系に作用する圧力
 %   \item $\varDelta V$: 系の体積の変化
 % \end{itemize}
-% 系が $p_e$ に抗して $\varDelta V$ だけ膨張したときに外界にする仕事。\\
-% これは、仕事が力と距離の積であることと、圧力が単位面積あたりの力であることから導ける。
+% 系が $p_e$ に抗して $\varDelta V$ だけ膨張したときに外界にする仕事.\\
+% これは,仕事が力と距離の積であることと,圧力が単位面積あたりの力であることから導ける.
 % \cite[pp.46]{thermo}
 
-\subsection{準静的過程の吸熱} \label{section:熱と仕事_準静的過程の吸熱}
+\subsection{準静的過程の吸熱} \label{section:準静的過程の吸熱}
 \begin{align*}
   Q\braunit{\J} = \int_{T_1}^{T_2} C\left(T, V, n, \pdv{V}{T}\right)\dd{T}
 \end{align*}
-温度が $T_1$ から $T_2$ に変化する準静的過程で系が吸収する熱量 $Q$ は、
-その過程中の温度 $T$ における熱容量 $C\left(T, V, n, \pdv{V}{T}\right)$ を $T$ で積分することで与えられる。
+温度が $T_1$ から $T_2$ に変化する準静的過程で系が吸収する熱量 $Q$ は,
+その過程中の温度 $T$ における熱容量 $C\left(T, V, n, \pdv{V}{T}\right)$ を $T$ で積分することで与えられる.
 \cite[pp.44]{thermo}
 
-\subsection{準静的過程の仕事} \label{section:熱と仕事_準静的過程の仕事}
+\subsection{準静的過程の仕事}
 \begin{align*}
   W\braunit{\J} = \int_{V_1}^{V_2} p\left(T, V, n\right)\dd{V}
 \end{align*}
-体積が $V_1$ から $V_2$ に変化する準静的過程で系が外界にする仕事 $W$ は、
-その過程中の体積 $V$ における圧力 $p\left(T, V, n\right)$ を $V$ で積分することで与えられる。\\
-なお、これは $pV$ 図での準静的過程の線の下側の面積にあたる。
-過程がサイクルになっている場合、系が外界にする仕事は、サイクルが囲む面積にあたり、これは一般に正である
-(系は外界から熱を受け取って外界に仕事をしながらもとの状態に戻る)。
+体積が $V_1$ から $V_2$ に変化する準静的過程で系が外界にする仕事 $W$ は,
+その過程中の体積 $V$ における圧力 $p\left(T, V, n\right)$ を $V$ で積分することで与えられる.\\
+なお, これは $pV$ 図での準静的過程の線の下側の面積にあたる.
+過程がサイクルになっている場合,系が外界にする仕事は, サイクルが囲む面積にあたり, これは一般に正である
+(系は外界から熱を受け取って外界に仕事をしながらもとの状態に戻る).
 \cite[pp.48]{thermo}
 \subsubsection{定圧過程}
-定圧過程 ($p$ が一定) かつ理想気体 ($p = \frac{nRT}{V}$) において
 \begin{align*}
   W\braunit{\J} = \int_{V_1}^{V_2} p\left(T, V, n\right)\dd{V} = p(V_2 - V_1) = nR(T_2 - T_1)
 \end{align*}
-となる。
+「$= p(V_2 - V_1)$」は定圧過程 ($p$ が一定) より. 「$= nR(T_2 - T_1)$」は理想気体 ($p = \frac{nRT}{V}$) より.
 \cite[pp.48]{thermo}
-\subsubsection{等温過程} \label{section:熱と仕事_等温過程の仕事}
-等温過程 ($T$ が一定) かつ理想気体 ($p = \frac{nRT}{V}$) において
+\subsubsection{等温過程} \label{section:等温過程の仕事}
 \begin{align*}
   W\braunit{\J} = \int_{V_1}^{V_2} p\left(T, V, n\right)\dd{V} = nRT\int_{V_1}^{V_2}\frac{1}{V}\dd{V} = nRT\ln\frac{V_2}{V_1}
 \end{align*}
-となる。
+「$= nRT\int_{V_1}^{V_2}\frac{1}{V}\dd{V}$」は等温過程 ($T$ が一定) かつ理想気体 ($p = \frac{nRT}{V}$) より.
 \cite[pp.49]{thermo}
 \subsubsection{断熱過程}
 断熱過程かつ理想気体において
 \begin{align*}
   W\braunit{\J} = -nc_V(T_2 - T_1)
 \end{align*}
-となる。この断熱過程が定積過程でなくても $c_V$ を使って良い。\\
-なぜなら： $(p_1, V_1, T_1)$ を始点として、まず断熱過程で $(p^{\prime}, V_2, T_2)$ に変化させ、
-次に定積過程で $(p^{\prime\prime}, V_2, T_1)$ に変化させ、
-最後に等温過程で $(p_1, V_1, T_1)$ に変化させることでサイクルを作る。
+この断熱過程が定積過程でなくても $c_V$ を使って良い.\\
+なぜなら: $(p_1, V_1, T_1)$ を始点として,まず断熱過程で $(p^{\prime}, V_2, T_2)$ に変化させ,
+次に定積過程で $(p^{\prime\prime}, V_2, T_1)$ に変化させ,
+最後に等温過程で $(p_1, V_1, T_1)$ に変化させることでサイクルを作る.
 \begin{itemize}
   \item サイクルでは $Q = W (= 0)$ (\fullref{section:熱力学第1法則_サイクル})
   \item 断熱過程では $Q = 0$
-  \item 定積過程では $Q = nc_V(T_1 - T_2)$ (\fullref{section:熱と仕事_準静的過程の吸熱} ※ $T_2 \rightarrow T_1$ という変化であることに注意)、 $W = 0$
+  \item 定積過程では $Q = nc_V(T_1 - T_2)$ (\fullref{section:準静的過程の吸熱} ※ $T_2 \rightarrow T_1$ という変化であることに注意), $W = 0$
   \item 等温過程では $Q = W (= nRT\ln\frac{V_1}{V_2})$ (\fullref{section:熱力学第1法則_準静的等温過程} ※ $V_2 \rightarrow V_1$ という変化であることに注意)
 \end{itemize}
-であるから、 $\left[Q - W\right]_{断熱過程} + \left[Q - W\right]_{定積過程} + \left[Q - W\right]_{等温過程} = - W_{断熱過程} + nc_V(T_1 - T_2)  = 0$ となる。
+であるから, $\left[Q - W\right]_{断熱過程} + \left[Q - W\right]_{定積過程} + \left[Q - W\right]_{等温過程} = - W_{断熱過程} + nc_V(T_1 - T_2)  = 0$.
 \cite[pp.61]{thermo}
 
 \subsection{ポアソンの法則}
@@ -205,7 +244,7 @@ $Q - W = \left[Q - W\right]_{自由膨張} + \left[Q - W\right]_{準静的等温
   TV^\beta &= \text{const.} \\
   pV^\gamma &= \text{const.}
 \end{align*}
-となる。ただし $\beta = \frac{R}{c_V}, \gamma = \frac{c_p}{c_V}$ である。
+ただし $\beta = \dfrac{R}{c_V}, \gamma = \dfrac{c_p}{c_V}$.
 \cite[pp.58]{thermo}
 
 \bibliographystyle{jplain}
